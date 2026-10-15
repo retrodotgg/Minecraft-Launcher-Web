@@ -20,7 +20,7 @@ function shuffle(array) {
     }
 }
 
-let gamelink = ".mc/26.2-wasm"
+let gamelink = "./mc/26.3-wasm/"
 
 
 

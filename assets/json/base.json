@@ -1,6 +1,13 @@
 [    
 		{
        "title": "Latest release WASM",
+       "version": "26.3-beta-wasm",
+       "icon": "./assets/images/mc-icons/sulfur-cube-wasm.png",
+       "link": "./mc/26.3-wasm/",
+       "active": true
+    },
+    {
+       "title": "Previous release WASM",
        "version": "26.2-beta-wasm",
        "icon": "./assets/images/mc-icons/sulfur-cube-wasm.png",
        "link": "./mc/26.2-wasm/",
