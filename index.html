@@ -20,6 +20,25 @@
 </head>
 
 <body>
+    <aside id="extension-announcement" aria-labelledby="extension-announcement-title">
+        <div class="extension-announcement-content">
+            <div class="extension-announcement-copy">
+                <div class="extension-announcement-header">
+                    <h2 id="extension-announcement-title">New extension to fix errors</h2>
+                    <button id="extension-announcement-close" class="extension-announcement-close" type="button" aria-label="Dismiss announcement">&times;</button>
+                </div>
+                <button id="extension-announcement-toggle" class="extension-announcement-toggle" type="button" aria-expanded="false" aria-controls="extension-announcement-details">Read more</button>
+            </div>
+            <img class="extension-announcement-image" src="./assets/images/icons/fixer.png" alt="Eagler Fixer logo">
+        </div>
+        <p id="extension-announcement-details" class="extension-announcement-details" hidden>
+            Download and extract
+            <a href="https://github.com/retrodotgg/Minecraft-Launcher-Web/releases/latest/download/extension.zip" target="_blank" rel="noopener noreferrer">Eagler Fixer</a>.
+            Paste the copied address, enable Developer mode, then choose “Load unpacked” and select the folder.
+            <button id="extension-browser-copy" class="extension-browser-copy" type="button" data-url="chrome://extensions/">Copy chrome://extensions/</button>
+            <span id="extension-browser-copy-status" class="extension-browser-copy-status" role="status" aria-live="polite"></span>
+        </p>
+    </aside>
     <div id="externalmenu"></div>
     <div id="naerror" class="error">
         <div>
@@ -270,5 +289,6 @@
         </div>
     </div>
     <script src="./js/index.js"></script>
+    <script src="./js/extension-announcement.js"></script>
 </body>
 </html>

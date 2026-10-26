@@ -93,6 +93,132 @@ hr {
     border: 0.1vw solid var(--ui-main-lighter);
 }
 
+/* Extension announcement */
+
+#extension-announcement {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    box-sizing: border-box;
+    width: min(21rem, calc(100vw - 2rem));
+    padding: 1rem;
+    color: white;
+    background: rgba(19, 19, 19, 0.97);
+    border: 1px solid var(--ui-main-lighter);
+    border-radius: 0.75rem;
+    box-shadow: 0 0.4rem 1.5rem rgba(0, 0, 0, 0.4);
+}
+
+.extension-announcement-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.extension-announcement-copy {
+    min-width: 0;
+}
+
+.extension-announcement-image {
+    flex: none;
+    width: 4.5rem;
+    height: 4.5rem;
+    object-fit: contain;
+    border-radius: 0.75rem;
+}
+
+.extension-announcement-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.extension-announcement-header h2 {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.extension-announcement-close {
+    padding: 0;
+    color: var(--text-secondary);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.extension-announcement-toggle {
+    margin-top: 0.75rem;
+    padding: 0.4rem 0.75rem;
+    color: white;
+    background: var(--ui-select);
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font: inherit;
+}
+
+.extension-announcement-toggle:hover {
+    background: var(--ui-select-secodary);
+}
+
+.extension-announcement-details {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.extension-announcement-details a {
+    color: #8bd5ff;
+}
+
+.extension-browser-copy {
+    display: block;
+    margin-top: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    color: white;
+    background: var(--ui-main-light);
+    border: 1px solid var(--ui-main-lighter);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font: inherit;
+}
+
+.extension-browser-copy:hover {
+    background: var(--ui-main-lighter);
+}
+
+.extension-browser-copy-status {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+}
+
+#extension-announcement.is-expanded {
+    width: min(26rem, calc(100vw - 2rem));
+}
+
+#extension-announcement.is-expanded .extension-announcement-details {
+    display: block;
+}
+
+@media only screen and (max-width: 480px) {
+    #extension-announcement,
+    #extension-announcement.is-expanded {
+        right: 0.75rem;
+        width: calc(100vw - 1.5rem);
+    }
+
+    .extension-announcement-image {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+}
+
 /* Error CSS */
 
 .error {
