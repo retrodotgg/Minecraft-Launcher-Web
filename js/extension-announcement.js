@@ -23,16 +23,37 @@ document.getElementById("extension-announcement-close").addEventListener("click"
 
 extensionBrowserCopy.addEventListener("click", async () => {
     const address = extensionBrowserCopy.dataset.url;
-    if (!navigator.clipboard?.writeText) {
-        extensionBrowserCopyStatus.textContent = `Clipboard unavailable. Enter ${address} in your address bar.`;
-        return;
-    }
-
     try {
-        await navigator.clipboard.writeText(address);
+        if (navigator.clipboard?.writeText) {
+            try {
+                await navigator.clipboard.writeText(address);
+            } catch {
+                copyWithLegacyClipboard(address);
+            }
+        } else {
+            copyWithLegacyClipboard(address);
+        }
         extensionBrowserCopyStatus.textContent = "Copied. Paste it in your address bar.";
     } catch (error) {
         console.error("Could not copy the browser extensions address.", error);
         extensionBrowserCopyStatus.textContent = `Copy failed. Enter ${address} in your address bar.`;
     }
 });
+
+function copyWithLegacyClipboard(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try {
+        if (!document.execCommand("copy")) {
+            throw new Error("The browser rejected the clipboard copy command.");
+        }
+    } finally {
+        textarea.remove();
+    }
+}
